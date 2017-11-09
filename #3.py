@@ -19,3 +19,16 @@ class Solution:
         :type s: str
         :rtype: int
         """
+        l = []
+        slen = len(s)
+        substring = 0
+        for i in range(slen):
+            if s[i] in l:
+                j = l.index(s[i])
+                l = l[j+1:]
+            l.append(s[i])
+            if len(l) > substring:
+                substring = len(l)
+        return substring
+s = Solution()
+print(s.lengthOfLongestSubstring('abcabcbb'))
