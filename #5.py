@@ -111,5 +111,10 @@ class Solution:
             R += 1
         return R - L - 1
 
+    #Approach #5 (Manacher's Algorithm) [Accepted]
+    #思想：在每个字符左右都加上一个特殊字符，比如加上'#'，那么处理后字符串都为奇数
+    #从而不必分类讨论，时间复杂度降为O(n)
+
+
 s = Solution()
 print(s.longestPalindrome3('ccd'))
