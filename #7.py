@@ -25,3 +25,14 @@ class Solution:
         :type x: int
         :rtype: int
         """
+        if str(x)[0] == '-':
+            x_ = '-' + str(x)[:0:-1]
+            x_ = int(x_)
+        else:
+            x_ = int(str(x)[::-1])
+        if -(pow(2, 31)) <= x_ <= pow(2, 31) - 1:
+            return x_
+        else:
+            return 0
+s = Solution()
+print(s.reverse(-321))
