@@ -79,6 +79,8 @@ class Solution1:
             ans = ans.next
         if carry == 1:
             ans.next = ListNode(1)
+        a = ListNode(6)
+        a.next = ans1
         return ans1.next
 
 s = Solution()

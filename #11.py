@@ -38,7 +38,7 @@ class Solution:
         lenth = len(height)
         water = 0
         for i in range(lenth):
-            
+
 
         return water
 
