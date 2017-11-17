@@ -12,10 +12,8 @@ crossin教室有类似题
 3.小的数字（限于 Ⅰ、X 和 C）在大的数字的左边，所表示的数等于大数减小数得到的数，如 Ⅳ=4、Ⅸ=9；
 4.在一个数的上面画一条横线，表示这个数增值 1,000 倍。
 '''
-
-
 class Solution:
-    # 阿拉伯数字转罗马数字
+    #阿拉伯数字转罗马数字
     def intToRoman(self, num):
         """
         :type num: int
@@ -30,8 +28,7 @@ class Solution:
             num = num % values[i]
             i += 1
         return roman
-
-    # 简单方法
+    #简单方法
     def itr(self, num):
         M = ["", "M", "MM", "MMM"]
         C = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]
@@ -39,7 +36,7 @@ class Solution:
         I = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
         return M[num / 1000] + C[(num % 1000) / 100] + X[(num % 100) / 10] + I[num % 10]
 
-    # 罗马数字转阿拉伯数字
+    #罗马数字转阿拉伯数字
     def romanToInt(s):
 
         d = dict(zip('IXCMVLD', (1, 10, 100, 1000, 5, 50, 500)))
