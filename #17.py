@@ -33,5 +33,9 @@ class Solution:
             i += 1
         return l
 s = Solution()
-print(s.letterCombinations("22"))
+print(s.letterCombinations("15608058020"))
+
+#一行
+#return reduce(lambda acc, digit: [x + y for x in acc for y in kvmaps[digit]], digits, [''])
+#['']为初始值
 
