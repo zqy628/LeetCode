@@ -11,3 +11,10 @@ class Solution:
         :type s: str
         :rtype: bool
         """
+        dic = {')':'(','}':'{',']':'['}
+        lenth = len(s)
+        i = 0
+        l = []
+        while i < lenth:
+            if s[i] in ['(','[','{']:
+                l.append(s[i])
