@@ -13,8 +13,16 @@ class Solution:
         """
         dic = {')':'(','}':'{',']':'['}
         lenth = len(s)
-        i = 0
         l = []
-        while i < lenth:
-            if s[i] in ['(','[','{']:
+        for i in range(lenth):
+            if s[i] in dic.values():
                 l.append(s[i])
+            elif s[i] in dic.keys():
+                if l != [] and dic[s[i]] == l[-1]:
+                    l.pop()
+                else:
+                    return False
+        return l == []
+
+s = Solution()
+print(s.isValid('['))
