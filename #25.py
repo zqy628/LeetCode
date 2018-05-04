@@ -32,3 +32,18 @@ class Solution:
         :type k: int
         :rtype: ListNode
         """
+        pre = jump = ListNode(0)
+        pre.next = l = r = head
+        while True:
+            count = 0
+            while count < k and r:
+                r = r.next
+                count = count + 1
+            if count == k:
+                p,q = l,r
+                for _ in range(k):#翻转链表
+                    p.next, p, q = q, p.next, p
+                #connect two k-groups(???)
+                jump.next, jump, l = q, l, r
+            else:
+                return pre.next

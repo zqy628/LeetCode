@@ -46,7 +46,7 @@ class Solution:
         return s
 
 #链表写法
-class Solution1:
+class Solution:
     def addTwoNumbers(self, l1, l2):
         """
         :type l1: ListNode
@@ -67,20 +67,11 @@ class Solution1:
             else:
                 v2 = 0
             sum = v1 + v2 + carry
-            #这个判断结构可以改写
-            # if sum >= 10:
-            #     ans.next = ListNode(sum-10)
-            #     carry = 1
-            # else:
-            #     ans.next = ListNode(sum)
-            #     carry = 0
-            sum = v1 + v2 + carry
             ans.next = ListNode(sum % 10)
+            carry = sum // 10
             ans = ans.next
         if carry == 1:
             ans.next = ListNode(1)
-        a = ListNode(6)
-        a.next = ans1
         return ans1.next
 
 s = Solution()
