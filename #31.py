@@ -23,3 +23,22 @@ class Solution:
         :type nums: List[int]
         :rtype: void Do not return anything, modify nums in-place instead.
         """
+        #没有比他更小的排列了，输出第一个
+        if nums == sorted(nums)[::-1]:
+            # print('True')
+            nums.sort()
+        else:
+            for i in range(len(nums)-1,-1,-1):
+                if nums[i] > nums[i-1]:
+                    pos = i - 1
+                    break
+            # print('pos:',pos)
+            sub = -nums[pos] + nums[pos+1]
+            rpos = 0
+            for j in range(pos+1,len(nums)):
+                csub = -nums[pos] + nums[j]
+                if csub <= sub and csub > 0:
+                    sub = csub
+                    rpos = j
+            nums[pos],nums[rpos] = nums[rpos],nums[pos]
+            nums[pos+1:] = nums[pos+1:][::-1]
