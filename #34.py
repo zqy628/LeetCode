@@ -25,3 +25,40 @@ class Solution:
         :type target: int
         :rtype: List[int]
         """
+        l = len(nums)
+        start = 0
+        mid = l // 2
+        fin = l - 1
+        if l == 0:
+            return [-1, -1]
+        if target < nums[0] or target > nums[-1]:
+            return [-1, -1]
+
+        if target == nums[start]:
+            while start<fin and nums[start + 1] == target:
+                start += 1
+            return [0,start]
+        if target == nums[fin]:
+            while start<fin and nums[fin - 1] == target:
+                fin -= 1
+            return [fin,l-1]
+        while start<=mid<=fin:
+            print('s%d,f%d,m%d'%(start,fin,mid))
+            if target == nums[mid]:
+                i = j = mid
+                while nums[i-1] == target:
+                    i = i-1
+                while nums[j+1] == target:
+                    j = j+1
+                return [i, j]
+            elif target <nums[mid]:
+                if abs(start-fin) == 1:
+                    return [-1, -1]
+                fin = mid
+                mid = (start+mid) // 2
+            else:
+                if abs(start-fin) == 1:
+                    return [-1, -1]
+                start = mid
+                mid = (fin+mid) // 2
+        return [-1, -1]
